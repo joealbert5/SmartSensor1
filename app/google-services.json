@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "304871353364",
+    "firebase_url": "https://smartsensor-842a9.firebaseio.com",
+    "project_id": "smartsensor-842a9",
+    "storage_bucket": "smartsensor-842a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304871353364:android:ea3b36b99abfeb30",
+        "android_client_info": {
+          "package_name": "com.fuck.www"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304871353364-evs36a750ovqato6lnnmg6rtfs09fck1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fuck.www",
+            "certificate_hash": "e477861243676d583f4337b3177eae78b7a84e1e"
+          }
+        },
+        {
+          "client_id": "304871353364-mo25i4mc3aio7n75u4qkb6t5b9fv9agr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDve8gr0zR-5Xox0qALEPpak8wMoCl5iZ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304871353364-mo25i4mc3aio7n75u4qkb6t5b9fv9agr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
