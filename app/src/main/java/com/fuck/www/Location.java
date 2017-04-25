@@ -21,6 +21,10 @@ public class Location {
         this.lng = 0;
     }
 
+    public String displayLocation(){
+        return "Alt: " + String.valueOf(alt) + "  Lat: " + String.valueOf(lat) + "  Lng: " + String.valueOf(lng);
+    }
+
     public double getLat() {
         return lat;
     }

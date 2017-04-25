@@ -6,32 +6,31 @@ package com.fuck.www;
 
 public class Data {
     private long date;
-    private int PM;
-    private int PM1;
-    private int PM10;
+    private double PM;
+    private double PM1;
+    private double PM10;
     private double battery_voltage;
-    private int formaldehyde;
+    private double formaldehyde;
     private double humidity;
     private Location location;
-    private int pressure;
+    private double pressure;
     private double raw_battery_voltage;
     private int state;
     private double temperature;
     private double temperature_BMP;
     private double temperature_DS3231;
-    private int ultraviolet;
+    private double ultraviolet;
 
-    public Data(int PM, int PM1, int PM10, double battery_voltage,
-            int formaldehyde,
+    public Data(double PM, double PM1, double PM10, double battery_voltage,
+            double formaldehyde,
             double humidity,
-            Location location,
-            int pressure,
+            Location location, double pressure,
             double raw_battery_voltage,
             int state,
             double temperature,
             double temperature_BMP,
             double temperature_DS3231,
-            int ultraviolet){
+                double ultraviolet){
 
         this.PM = PM;
         this.PM1 = PM1;
@@ -47,6 +46,24 @@ public class Data {
         this.temperature_BMP = temperature_BMP;
         this.temperature_DS3231 = temperature_DS3231;
         this.ultraviolet = ultraviolet;
+        this.date = -1;
+    }
+
+    Data(){
+        this.PM = -1;
+        this.PM1 = -1;
+        this.PM10 = -1;
+        this.battery_voltage = -1;
+        this.formaldehyde = -1;
+        this.humidity = -1;
+        this.location = new Location();
+        this.pressure = -1;
+        this.raw_battery_voltage = -1;
+        this.state = -1;
+        this.temperature = -1;
+        this.temperature_BMP = -1;
+        this.temperature_DS3231 = -1;
+        this.ultraviolet = -1;
         this.date = -1;
     }
 
@@ -78,23 +95,23 @@ public class Data {
         return temperature_DS3231;
     }
 
-    public int getFormaldehyde() {
+    public double getFormaldehyde() {
         return formaldehyde;
     }
 
-    public int getPM() {
+    public double getPM() {
         return PM;
     }
 
-    public int getPM1() {
+    public double getPM1() {
         return PM1;
     }
 
-    public int getPM10() {
+    public double getPM10() {
         return PM10;
     }
 
-    public int getPressure() {
+    public double getPressure() {
         return pressure;
     }
 
@@ -102,11 +119,19 @@ public class Data {
         return state;
     }
 
-    public int getUltraviolet() {
+    public double getUltraviolet() {
         return ultraviolet;
     }
 
     public Location getLocation() {
         return location;
+    }
+
+    public void setBattery_voltage(double battery_voltage) {
+        this.battery_voltage = battery_voltage;
+    }
+
+    public void setRaw_battery_voltage(double raw_battery_voltage) {
+        this.raw_battery_voltage = raw_battery_voltage;
     }
 }

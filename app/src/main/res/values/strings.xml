@@ -3,6 +3,14 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="TempTVLabel">Temperature</string>
+    <string name="RelHumTVLabel">Relative Humidity</string>
+    <string name="AirPressureTVLabel">Air Pressure</string>
+    <string name="BatVoltTVLabel">Battery Voltage</string>
+    <string name="UVTVLabel">UltraViolet</string>
+    <string name="PMTVLabel">PM2.5</string>
+    <string name="AirQualTVLabel">Air Quality</string>
+    <string name="GeoLocTVLabel">Location</string>
 
     <string name="action_settings">Settings</string>
 </resources>

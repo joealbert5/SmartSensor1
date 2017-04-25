@@ -17,20 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="TempTV"
-        android:ems="10"
-        android:id="@+id/TempTVLabel"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="198dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="RelHumTV"
+        android:text="@string/RelHumTVLabel"
         android:ems="10"
         android:id="@+id/RelHumTVLabel"
         android:layout_alignTop="@+id/UVTV"
@@ -41,19 +28,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="AirPressureTV"
-        android:ems="10"
-        android:id="@+id/AirPressureTVLabel"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/PMTV"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="TempTV"
         android:ems="10"
         android:id="@+id/TempTV"
@@ -65,7 +39,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="RelHumTV"
         android:ems="10"
         android:id="@+id/RelHumTV"
@@ -76,7 +49,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="AirPressureTV"
         android:ems="10"
         android:id="@+id/AirPressureTV"
@@ -87,8 +59,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="UVTV"
+        android:text="@string/UVTVLabel"
         android:ems="10"
         android:id="@+id/UVTVLabel"
         android:layout_alignBaseline="@+id/TempTVLabel"
@@ -99,7 +70,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="UVTV"
         android:ems="10"
         android:id="@+id/UVTV"
@@ -111,19 +81,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="PMTV"
-        android:ems="10"
-        android:id="@+id/PMTVLabel"
-        android:layout_alignBaseline="@+id/RelHumTVLabel"
-        android:layout_alignBottom="@+id/RelHumTVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="PMTV"
         android:ems="10"
         android:id="@+id/PMTV"
@@ -135,31 +92,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="GeoLocTV"
-        android:ems="10"
-        android:id="@+id/GeoLocTV"
-        android:layout_alignBaseline="@+id/BatVoltTV"
-        android:layout_alignBottom="@+id/BatVoltTV"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="GeoLocTV"
-        android:ems="10"
-        android:id="@+id/GeoLocTVLabel"
-        android:layout_alignBaseline="@+id/BatVoltTVLabel"
-        android:layout_alignBottom="@+id/BatVoltTVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:text="AirQualTV"
         android:ems="10"
         android:id="@+id/AirQualTV"
@@ -171,8 +103,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="AirQualTV"
+        android:text="@string/AirQualTVLabel"
         android:ems="10"
         android:id="@+id/AirQualTVLabel"
         android:layout_alignBaseline="@+id/AirPressureTVLabel"
@@ -183,23 +114,200 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="BatVoltTV"
+        android:text="@string/PMTVLabel"
         android:ems="10"
-        android:id="@+id/BatVoltTVLabel"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/PMTVLabel"
+        android:layout_alignBaseline="@+id/RelHumTVLabel"
+        android:layout_alignBottom="@+id/RelHumTVLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AirPressureTVLabel"
+        android:ems="10"
+        android:id="@+id/AirPressureTVLabel"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/RelHumTV"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pm1tv"
+        android:ems="10"
+        android:id="@+id/pm1tv"
+        android:layout_below="@+id/pm1TVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Raw Battery Voltage"
+        android:ems="10"
+        android:id="@+id/rbvTVLabel"
+        android:layout_below="@+id/pm1tv"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="17dp" />
+        android:layout_marginTop="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="rbvtv"
+        android:ems="10"
+        android:id="@+id/rbvtv"
+        android:layout_below="@+id/rbvTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temp BMP"
+        android:ems="10"
+        android:id="@+id/tempbmpTVLabel"
+        android:layout_below="@+id/rbvtv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tempbmptv"
+        android:ems="10"
+        android:id="@+id/tempbmptv"
+        android:layout_below="@+id/tempbmpTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="State"
+        android:ems="10"
+        android:id="@+id/stateTVLabel"
+        android:layout_above="@+id/statetv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PM1"
+        android:ems="10"
+        android:id="@+id/pm1TVLabel"
+        android:layout_alignBaseline="@+id/BatVoltTVLabel"
+        android:layout_alignBottom="@+id/BatVoltTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temp Node"
+        android:ems="10"
+        android:id="@+id/tempnodeTVLabel"
+        android:layout_above="@+id/tempnodetv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="statetv"
+        android:ems="10"
+        android:id="@+id/statetv"
+        android:layout_alignBaseline="@+id/tempbmptv"
+        android:layout_alignBottom="@+id/tempbmptv"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
+        android:text="@string/BatVoltTVLabel"
+        android:ems="10"
+        android:id="@+id/BatVoltTVLabel"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/AirQualTV"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="BatVoltTV"
         android:ems="10"
         android:id="@+id/BatVoltTV"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/rbvTVLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PM10"
+        android:ems="10"
+        android:id="@+id/pm10TVLabel"
+        android:layout_alignBaseline="@+id/rbvTVLabel"
+        android:layout_alignBottom="@+id/rbvTVLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pm10tv"
+        android:ems="10"
+        android:id="@+id/pm10tv"
+        android:layout_below="@+id/pm10TVLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tempDS2131tv"
+        android:ems="10"
+        android:id="@+id/tempnodetv"
+        android:layout_below="@+id/GeoLocTVLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/TempTVLabel"
+        android:ems="10"
+        android:id="@+id/TempTVLabel"
+        android:layout_marginTop="38dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/GeoLocTVLabel"
+        android:ems="10"
+        android:id="@+id/GeoLocTVLabel"
+        android:layout_below="@+id/tempbmptv"
+        android:layout_alignLeft="@+id/GeoLocTV"
+        android:layout_alignStart="@+id/GeoLocTV"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GeoLocTV"
+        android:ems="10"
+        android:id="@+id/GeoLocTV"
+        android:layout_below="@+id/GeoLocTVLabel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
