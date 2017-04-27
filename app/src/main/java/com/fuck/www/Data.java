@@ -5,7 +5,7 @@ package com.fuck.www;
  */
 
 public class Data {
-    private long date;
+    private String date;
     private double PM;
     private double PM1;
     private double PM10;
@@ -46,7 +46,7 @@ public class Data {
         this.temperature_BMP = temperature_BMP;
         this.temperature_DS3231 = temperature_DS3231;
         this.ultraviolet = ultraviolet;
-        this.date = -1;
+        this.date = "error";
     }
 
     Data(){
@@ -64,10 +64,10 @@ public class Data {
         this.temperature_BMP = -1;
         this.temperature_DS3231 = -1;
         this.ultraviolet = -1;
-        this.date = -1;
+        this.date = "error";
     }
 
-    public void setDate(long date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -125,6 +125,10 @@ public class Data {
 
     public Location getLocation() {
         return location;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public void setBattery_voltage(double battery_voltage) {
