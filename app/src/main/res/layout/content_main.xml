@@ -16,28 +16,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/RelHumTVLabel"
-        android:ems="10"
-        android:id="@+id/RelHumTVLabel"
-        android:layout_alignTop="@+id/UVTV"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TempTV"
-        android:ems="10"
-        android:id="@+id/TempTV"
-        android:layout_alignTop="@+id/TempTVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="19dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="RelHumTV"
         android:ems="10"
         android:id="@+id/RelHumTV"
@@ -124,17 +102,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/AirPressureTVLabel"
-        android:ems="10"
-        android:id="@+id/AirPressureTVLabel"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/RelHumTV"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="pm1tv"
         android:ems="10"
         android:id="@+id/pm1tv"
@@ -145,34 +112,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Raw Battery Voltage"
-        android:ems="10"
-        android:id="@+id/rbvTVLabel"
-        android:layout_below="@+id/pm1tv"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="rbvtv"
         android:ems="10"
         android:id="@+id/rbvtv"
         android:layout_below="@+id/rbvTVLabel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Temp BMP"
-        android:ems="10"
-        android:id="@+id/tempbmpTVLabel"
-        android:layout_below="@+id/rbvtv"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -223,18 +168,6 @@
         android:id="@+id/statetv"
         android:layout_alignBaseline="@+id/tempbmptv"
         android:layout_alignBottom="@+id/tempbmptv"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/BatVoltTVLabel"
-        android:ems="10"
-        android:id="@+id/BatVoltTVLabel"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/AirQualTV"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -305,8 +238,75 @@
         android:text="@string/GeoLocTVLabel"
         android:ems="10"
         android:id="@+id/GeoLocTVLabel"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="11dp"
         android:layout_below="@+id/tempbmptv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temp BMP"
+        android:ems="10"
+        android:id="@+id/tempbmpTVLabel"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/rbvtv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Raw Battery Voltage"
+        android:ems="10"
+        android:id="@+id/rbvTVLabel"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/pm1tv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/BatVoltTVLabel"
+        android:ems="10"
+        android:id="@+id/BatVoltTVLabel"
+
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/AirQualTV"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AirPressureTVLabel"
+        android:ems="10"
+        android:id="@+id/AirPressureTVLabel"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/RelHumTV"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TempTV"
+        android:ems="10"
+        android:id="@+id/TempTV"
+        android:layout_below="@+id/TempTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/RelHumTVLabel"
+        android:ems="10"
+        android:id="@+id/RelHumTVLabel"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/TempTV"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -316,7 +316,7 @@
         android:text="@string/TempTVLabel"
         android:ems="10"
         android:id="@+id/TempTVLabel"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="158dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

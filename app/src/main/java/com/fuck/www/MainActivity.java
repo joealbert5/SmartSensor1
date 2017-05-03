@@ -61,59 +61,6 @@ public class MainActivity extends AppCompatActivity
         getLatestData();
     }
 
-    public ArrayList<Data> getData(){
-        //make a firebase instance
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        final ArrayList<Data> datalist = new ArrayList<Data>();
-        DatabaseReference myRef = db.getReferenceFromUrl("https://smartsensor-842a9.firebaseio.com/SensorNode/S127");
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Stack<Data> datastack = new Stack<>();
-                int counter = 0;
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    //long date = child.getValue(Long.class);
-                    long date = 0;
-                    int PM = child.child("PM").getValue(int.class);
-                    int PM1 = child.child("PM1").getValue(int.class);
-                    int PM10 = child.child("PM10").getValue(int.class);
-                    double battery_voltage = child.child("battery voltage").getValue(double.class);
-                    int formaldehyde = child.child("formaldehyde").getValue(int.class);
-                    double humidity = child.child("humidity").getValue(double.class);
-                    Location location = child.child("location").getValue(Location.class);
-                    int pressure = child.child("pressure").getValue(int.class);
-                    double rbv = child.child("raw battery voltage").getValue(double.class);
-                    int state = child.child("state").getValue(int.class);
-                    double temperature = child.child("temperature").getValue(double.class);
-                    double temperature_BMP = child.child("temperature_BMP").getValue(double.class);
-                    double temperature_DS3231 = child.child("temperature_DS3231").getValue(double.class);
-                    int uv = child.child("ultraviolet").getValue(int.class);
-                    String date2 = child.getKey();
-
-                    Data d = new Data(PM, PM1, PM10, battery_voltage, formaldehyde, humidity,
-                            location, pressure, rbv, state, temperature, temperature_BMP, temperature_DS3231,
-                            uv);
-                    d.setDate(date2);
-                    datastack.push(d);
-                    counter++;
-                }
-                while (!datastack.empty()) {
-                    Data d = datastack.pop();
-                    datalist.add(d);
-                }
-                fillData(datalist);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                //Log.w(TAG, "Failed to read value.", error.toException());
-            }
-        });
-        return datalist;
-
-    }
 
     public ArrayList<Data> getLatestData(){
         //make a firebase instance
@@ -263,6 +210,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_history:
                 //fragment = new HistoryActivity();
                 intent = new Intent(this, HistoryActivityReal.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_plots:
+                intent = new Intent(this, PlotActivity.class);
                 startActivity(intent);
                 break;
         }

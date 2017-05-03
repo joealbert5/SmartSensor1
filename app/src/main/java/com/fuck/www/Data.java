@@ -67,6 +67,42 @@ public class Data {
         this.date = "error";
     }
 
+    public Data add(Data dn){
+        this.PM += dn.getPM();
+        this.PM1 += dn.getPM1();
+        this.PM10 += dn.getPM10();
+        this.battery_voltage += dn.getBattery_voltage();
+        this.formaldehyde += dn.getFormaldehyde();
+        this.humidity += dn.getHumidity();
+        this.pressure += dn.getPressure();
+        this.raw_battery_voltage += dn.getRaw_battery_voltage();
+        this.state += dn.getState();
+        this.temperature += dn.getTemperature();
+        this.temperature_BMP += dn.getTemperature_BMP();
+        this.temperature_DS3231 += dn.getTemperature_DS3231();
+        this.ultraviolet += dn.getUltraviolet();
+
+        return this;
+    }
+
+    public Data divide(double d){
+        this.PM /= d;
+        this.PM1 /= d;
+        this.PM10 /= d;
+        this.battery_voltage /= d;
+        this.formaldehyde /= d;
+        this.humidity /= d;
+        this.pressure /= d;
+        this.raw_battery_voltage /= d;
+        this.state /= d;
+        this.temperature /= d;
+        this.temperature_BMP /= d;
+        this.temperature_DS3231 /= d;
+        this.ultraviolet /= d;
+
+        return this;
+    }
+
     public void setDate(String date) {
         this.date = date;
     }

@@ -13,4 +13,20 @@
     <string name="GeoLocTVLabel">Location</string>
 
     <string name="action_settings">Settings</string>
+    <string-array name="list_of_data">
+        <item>Temperature</item>
+        <item>Temp BMP</item>
+        <item>Temp Node</item>
+        <item>Relative Humidity</item>
+        <item>PM1</item>
+        <item>PM2.5</item>
+        <item>PM10</item>
+        <item>UltraViolet</item>
+        <item>Fermaldehyde</item>
+        <item>Battery Voltage</item>
+        <item>Raw Batery Voltage</item>
+        <item>State</item>
+        <item>Location</item>
+        <item>Air Pressure</item>
+    </string-array>
 </resources>
