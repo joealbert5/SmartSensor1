@@ -1,5 +1,6 @@
 package com.fuck.www;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,15 +31,6 @@ public class HistoryActivityReal extends ActionBarActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_main);
-/*
-        //spinner
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> tadapter = ArrayAdapter.createFromResource(this,
-                R.array.list_of_data, android.R.layout.simple_spinner_item);
-        tadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(tadapter);
-        spinner.setOnItemSelectedListener(new SpinnerActivity());*/
-
         //fab
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -60,6 +52,7 @@ public class HistoryActivityReal extends ActionBarActivity {
         lastQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                datalist.clear();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     //long date = child.getValue(Long.class);
                     long date = 0;
@@ -86,7 +79,8 @@ public class HistoryActivityReal extends ActionBarActivity {
                     datalist.add(d);
                 }
                 Data mean = calculateMean(datalist);
-                fillData(mean);
+                Data std = calculateStd(datalist, mean);
+                fillData(mean, std);
             }
 
             @Override
@@ -97,7 +91,8 @@ public class HistoryActivityReal extends ActionBarActivity {
         });
     }
 
-    private void fillData(Data d) {
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
+    private void fillData(Data d, Data std) {
         final TextView temp = (TextView) findViewById(R.id.textView17);
         final TextView tempbmptv = (TextView) findViewById(R.id.textView18);
         final TextView tempnodetv = (TextView) findViewById(R.id.textView19);
@@ -111,18 +106,18 @@ public class HistoryActivityReal extends ActionBarActivity {
         final TextView rbvtv = (TextView) findViewById(R.id.textView27);
         final TextView AirPressureTV = (TextView) findViewById(R.id.textView2);
 
-        temp.setText(String.valueOf(d.getTemperature()));
-        tempbmptv.setText(String.valueOf(d.getTemperature_BMP()));
-        tempnodetv.setText(String.valueOf(d.getTemperature_DS3231()));
-        RelHumTV.setText(String.valueOf(d.getHumidity()));
-        pm1tv.setText(String.valueOf(d.getPM1()));
-        pm25tv.setText(String.valueOf(d.getPM()));
-        pm10tv.setText(String.valueOf(d.getPM10()));
-        UVTV.setText(String.valueOf(d.getUltraviolet()));
-        fermaldehyde.setText(String.valueOf(d.getFormaldehyde()));
-        BatVoltTV.setText(String.valueOf(d.getBattery_voltage()));
-        rbvtv.setText(String.valueOf(d.getRaw_battery_voltage()));
-        AirPressureTV.setText(String.valueOf(d.getPressure()));
+        temp.setText("Mean: " + String.format( "%.2f", d.getTemperature()) + "  Std: " + String.format("%.2f", std.getPressure()));
+        tempbmptv.setText("Mean: " + String.format("%.2f", d.getTemperature_BMP()) + "  Std: " + String.format("%.2f", std.getTemperature_BMP()));
+        tempnodetv.setText("Mean: " + String.format("%.2f", d.getTemperature_DS3231()) + "  Std: " + String.format("%.2f", std.getTemperature_DS3231()));
+        RelHumTV.setText("Mean: " + String.format("%.2f", d.getHumidity()) + "  Std: " + String.format("%.2f", std.getHumidity()));
+        pm1tv.setText("Mean: " + String.format("%.2f", d.getPM1()) + "  Std: " + String.format("%.2f", std.getPM1()));
+        pm25tv.setText("Mean: " + String.format("%.2f", d.getPM()) + "  Std: " + String.format("%.2f", std.getPM()));
+        pm10tv.setText("Mean: " + String.format("%.2f", d.getPM10()) + "  Std: " + String.format("%.2f", std.getPM10()));
+        UVTV.setText("Mean: " + String.format("%.2f", d.getUltraviolet()) + "  Std: " + String.format("%.2f", std.getUltraviolet()));
+        fermaldehyde.setText("Mean: " + String.format("%.2f", d.getFormaldehyde()) + "  Std: " + String.format("%.2f", std.getFormaldehyde()));
+        BatVoltTV.setText("Mean: " + String.format("%.2f", d.getBattery_voltage()) + "  Std: " + String.format("%.2f", std.getBattery_voltage()));
+        rbvtv.setText("Mean: " + String.format("%.2f", d.getRaw_battery_voltage()) + "  Std: " + String.format("%.2f", std.getRaw_battery_voltage()));
+        AirPressureTV.setText("Mean: " + String.format("%.2f", d.getPressure()) + "  Std: " + String.format("%.2f", std.getPressure()));
 
 
     }
@@ -133,6 +128,20 @@ public class HistoryActivityReal extends ActionBarActivity {
             dAvg.add(list.get(i));
         }
         return dAvg.divide(list.size());
+    }
+
+    private Data calculateStd(ArrayList<Data> list, Data mean){
+        Data temp;
+        Data sum = new Data(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, new Location(), 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0);
+        for (int i = 0; i < list.size(); i++){
+            mean.multiply(-1);
+            temp = list.get(i);
+            temp.add(mean);
+            temp.multiply(temp);
+            sum.add(temp);
+        }
+        sum.divide(list.size());
+        return sum.sqrt();
     }
 
 

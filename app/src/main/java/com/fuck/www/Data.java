@@ -103,6 +103,59 @@ public class Data {
         return this;
     }
 
+    public Data multiply(double d){
+        this.PM *= d;
+        this.PM1 *= d;
+        this.PM10 *= d;
+        this.battery_voltage *= d;
+        this.formaldehyde *= d;
+        this.humidity *= d;
+        this.pressure *= d;
+        this.raw_battery_voltage *= d;
+        this.state *= d;
+        this.temperature *= d;
+        this.temperature_BMP *= d;
+        this.temperature_DS3231 *= d;
+        this.ultraviolet *= d;
+
+        return this;
+    }
+
+    public Data multiply(Data dn){
+        this.PM *= dn.getPM();
+        this.PM1 *= dn.getPM1();
+        this.PM10 *= dn.getPM10();
+        this.battery_voltage *= dn.getBattery_voltage();
+        this.formaldehyde *= dn.getFormaldehyde();
+        this.humidity *= dn.getHumidity();
+        this.pressure *= dn.getPressure();
+        this.raw_battery_voltage *= dn.getRaw_battery_voltage();
+        this.state *= dn.getState();
+        this.temperature *= dn.getTemperature();
+        this.temperature_BMP *= dn.getTemperature_BMP();
+        this.temperature_DS3231 *= dn.getTemperature_DS3231();
+        this.ultraviolet *= dn.getUltraviolet();
+
+        return this;
+    }
+
+    public Data sqrt(){
+        this.PM = Math.sqrt(PM);
+        this.PM1 = Math.sqrt(PM1);
+        this.PM10 = Math.sqrt(PM10);
+        this.battery_voltage = Math.sqrt(battery_voltage);
+        this.formaldehyde = Math.sqrt(formaldehyde);
+        this.humidity = Math.sqrt(humidity);
+        this.pressure = Math.sqrt(pressure);
+        this.raw_battery_voltage = Math.sqrt(raw_battery_voltage);
+        this.temperature = Math.sqrt(temperature);
+        this.temperature_BMP = Math.sqrt(temperature_BMP);
+        this.temperature_DS3231 = Math.sqrt(temperature_DS3231);
+        this.ultraviolet = Math.sqrt(ultraviolet);
+
+        return this;
+    }
+
     public void setDate(String date) {
         this.date = date;
     }
