@@ -3,11 +3,6 @@ package com.fuck.www;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,14 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.ChildEventListener;
@@ -33,10 +26,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Stack;
+import java.util.Date;
 
 //NavigationView.OnNavigationItemSelectedListener
 public class MainActivity extends AppCompatActivity
@@ -152,7 +145,7 @@ public class MainActivity extends AppCompatActivity
         AirPressureTV.setText(String.valueOf(datalist.get(0).getPressure()));
         AirQualTV.setText(determineAQ(datalist.get(0).getFormaldehyde()));
         BatVoltTV.setText(String.valueOf(datalist.get(0).getBattery_voltage()));
-        GeoLocTV.setText(determineLoc(datalist));
+        GeoLocTV.setText(String.valueOf(datalist.get(0).getFormaldehyde()));
         UVTV.setText(String.valueOf(datalist.get(0).getUltraviolet()));
         TempTV.setText(String.valueOf(datalist.get(0).getTemperature()));
         RelHumTV.setText(String.valueOf(datalist.get(0).getHumidity()));
@@ -162,7 +155,11 @@ public class MainActivity extends AppCompatActivity
         statetv.setText(String.valueOf(datalist.get(0).getState()));
         tempbmptv.setText(String.valueOf(datalist.get(0).getTemperature_BMP()));
         tempnodetv.setText(String.valueOf(datalist.get(0).getTemperature_DS3231()));
-        datetv.setText(String.valueOf(datalist.get(0).getDate()));
+
+        long dv = Long.valueOf(datalist.get(0).getDate())*1000;// its need to be in milisecond
+        Date df = new java.util.Date(dv);
+        String vv = new SimpleDateFormat("MM/dd/yyyy hh:mma").format(df);
+        datetv.setText("Last updated: " + vv);
         mLocation = datalist.get(0).getLocation();
         mMapFragment.getMapAsync(this);
     }

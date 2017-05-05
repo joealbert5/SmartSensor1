@@ -53,6 +53,8 @@ public class HistoryActivityReal extends ActionBarActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 datalist.clear();
+                Data dmax = new Data(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, new Location(), 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0);
+                Data dmin = new Data(10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, new Location(), 10000.0, 10000.0, 10000, 10000.0, 10000.0, 10000.0, 10000.0);
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     //long date = child.getValue(Long.class);
                     long date = 0;
@@ -76,11 +78,13 @@ public class HistoryActivityReal extends ActionBarActivity {
                             location, pressure, rbv, state, temperature, temperature_BMP, temperature_DS3231,
                             uv);
                     d.setDate(date2);
+                    setMax(dmax, d);
+                    setMin(dmin, d);
                     datalist.add(d);
                 }
                 Data mean = calculateMean(datalist);
                 Data std = calculateStd(datalist, mean);
-                fillData(mean, std);
+                fillData(mean, dmax, dmin);
             }
 
             @Override
@@ -92,7 +96,7 @@ public class HistoryActivityReal extends ActionBarActivity {
     }
 
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
-    private void fillData(Data d, Data std) {
+    private void fillData(Data d, Data max, Data min) {
         final TextView temp = (TextView) findViewById(R.id.textView17);
         final TextView tempbmptv = (TextView) findViewById(R.id.textView18);
         final TextView tempnodetv = (TextView) findViewById(R.id.textView19);
@@ -106,18 +110,18 @@ public class HistoryActivityReal extends ActionBarActivity {
         final TextView rbvtv = (TextView) findViewById(R.id.textView27);
         final TextView AirPressureTV = (TextView) findViewById(R.id.textView2);
 
-        temp.setText("Mean: " + String.format( "%.2f", d.getTemperature()) + "  Std: " + String.format("%.2f", std.getPressure()));
-        tempbmptv.setText("Mean: " + String.format("%.2f", d.getTemperature_BMP()) + "  Std: " + String.format("%.2f", std.getTemperature_BMP()));
-        tempnodetv.setText("Mean: " + String.format("%.2f", d.getTemperature_DS3231()) + "  Std: " + String.format("%.2f", std.getTemperature_DS3231()));
-        RelHumTV.setText("Mean: " + String.format("%.2f", d.getHumidity()) + "  Std: " + String.format("%.2f", std.getHumidity()));
-        pm1tv.setText("Mean: " + String.format("%.2f", d.getPM1()) + "  Std: " + String.format("%.2f", std.getPM1()));
-        pm25tv.setText("Mean: " + String.format("%.2f", d.getPM()) + "  Std: " + String.format("%.2f", std.getPM()));
-        pm10tv.setText("Mean: " + String.format("%.2f", d.getPM10()) + "  Std: " + String.format("%.2f", std.getPM10()));
-        UVTV.setText("Mean: " + String.format("%.2f", d.getUltraviolet()) + "  Std: " + String.format("%.2f", std.getUltraviolet()));
-        fermaldehyde.setText("Mean: " + String.format("%.2f", d.getFormaldehyde()) + "  Std: " + String.format("%.2f", std.getFormaldehyde()));
-        BatVoltTV.setText("Mean: " + String.format("%.2f", d.getBattery_voltage()) + "  Std: " + String.format("%.2f", std.getBattery_voltage()));
-        rbvtv.setText("Mean: " + String.format("%.2f", d.getRaw_battery_voltage()) + "  Std: " + String.format("%.2f", std.getRaw_battery_voltage()));
-        AirPressureTV.setText("Mean: " + String.format("%.2f", d.getPressure()) + "  Std: " + String.format("%.2f", std.getPressure()));
+        temp.setText("Mean: " + String.format( "%.2f", d.getTemperature()) + "  Max: " + String.format("%.2f", max.getTemperature()) + "  Min: " + String.format("%.2f", min.getTemperature()));
+        tempbmptv.setText("Mean: " + String.format("%.2f", d.getTemperature_BMP()) + "  Max: " + String.format("%.2f", max.getTemperature_BMP()) + "  Min: " + String.format("%.2f", min.getTemperature_BMP()));
+        tempnodetv.setText("Mean: " + String.format("%.2f", d.getTemperature_DS3231()) + "  Max: " + String.format("%.2f", max.getTemperature_DS3231()) + "  Min: " + String.format("%.2f", min.getTemperature_DS3231()));
+        RelHumTV.setText("Mean: " + String.format("%.2f", d.getHumidity()) + "  Max: " + String.format("%.2f", max.getHumidity()) + "  Min: " + String.format("%.2f", min.getHumidity()));
+        pm1tv.setText("Mean: " + String.format("%.2f", d.getPM1()) + "  Max: " + String.format("%.2f", max.getPM1()) + "  Min: " + String.format("%.2f", min.getPM1()));
+        pm25tv.setText("Mean: " + String.format("%.2f", d.getPM()) + "  Max: " + String.format("%.2f", max.getPM()) + "  Min: " + String.format("%.2f", min.getPM()));
+        pm10tv.setText("Mean: " + String.format("%.2f", d.getPM10()) + "  Max: " + String.format("%.2f", max.getPM10()) + "  Min: " + String.format("%.2f", min.getPM10()));
+        UVTV.setText("Mean: " + String.format("%.2f", d.getUltraviolet()) + "  Max: " + String.format("%.2f", max.getUltraviolet()) + "  Min: " + String.format("%.2f", min.getUltraviolet()));
+        fermaldehyde.setText("Mean: " + String.format("%.2f", d.getFormaldehyde()) + "  Max: " + String.format("%.2f", max.getFormaldehyde()) + "  Min: " + String.format("%.2f", min.getFormaldehyde()));
+        BatVoltTV.setText("Mean: " + String.format("%.2f", d.getBattery_voltage()) + "  Max: " + String.format("%.2f", max.getBattery_voltage()) + "  Min: " + String.format("%.2f", min.getBattery_voltage()));
+        rbvtv.setText("Mean: " + String.format("%.2f", d.getRaw_battery_voltage()) + "  Max: " + String.format("%.2f", max.getRaw_battery_voltage()) + "  Min: " + String.format("%.2f", min.getRaw_battery_voltage()));
+        AirPressureTV.setText("Mean: " + String.format("%.2f", d.getPressure()) + "  Max: " + String.format("%.2f", max.getPressure()) + "  Min: " + String.format("%.2f", min.getPressure()));
 
 
     }
@@ -144,6 +148,59 @@ public class HistoryActivityReal extends ActionBarActivity {
         return sum.sqrt();
     }
 
+    private void setMax(Data dmax, Data d){
+        if (d.getUltraviolet() > dmax.getUltraviolet())
+            dmax.setUltraviolet(d.getUltraviolet());
+        if (d.getHumidity() > dmax.getHumidity())
+            dmax.setHumidity(d.getHumidity());
+        if (d.getTemperature() > dmax.getTemperature())
+            dmax.setTemperature(d.getTemperature());
+        if (d.getBattery_voltage() > dmax.getBattery_voltage())
+            dmax.setBattery_voltage(d.getBattery_voltage());
+        if (d.getFormaldehyde() > dmax.getFormaldehyde())
+            dmax.setFormaldehyde(d.getFormaldehyde());
+        if (d.getPM() > dmax.getPM())
+            dmax.setPM(d.getPM());
+        if (d.getPM1() > dmax.getPM1())
+            dmax.setPM1(d.getPM1());
+        if (d.getPM10() > dmax.getPM10())
+            dmax.setPM10(d.getPM10());
+        if (d.getPressure() > dmax.getPressure())
+            dmax.setPressure(d.getPressure());
+        if (d.getRaw_battery_voltage() > dmax.getRaw_battery_voltage())
+            dmax.setRaw_battery_voltage(d.getRaw_battery_voltage());
+        if (d.getTemperature_BMP() > dmax.getTemperature_BMP())
+            dmax.setTemperature_BMP(d.getTemperature_BMP());
+        if (d.getTemperature_DS3231() > dmax.getTemperature_DS3231())
+            dmax.setTemperature_DS3231(d.getTemperature_DS3231());
+    }
+
+    private void setMin(Data dmin, Data d){
+        if (d.getUltraviolet() < dmin.getUltraviolet())
+            dmin.setUltraviolet(d.getUltraviolet());
+        if (d.getHumidity() < dmin.getHumidity())
+            dmin.setHumidity(d.getHumidity());
+        if (d.getTemperature() < dmin.getTemperature())
+            dmin.setTemperature(d.getTemperature());
+        if (d.getBattery_voltage() < dmin.getBattery_voltage())
+            dmin.setBattery_voltage(d.getBattery_voltage());
+        if (d.getFormaldehyde() < dmin.getFormaldehyde())
+            dmin.setFormaldehyde(d.getFormaldehyde());
+        if (d.getPM() < dmin.getPM())
+            dmin.setPM(d.getPM());
+        if (d.getPM1() < dmin.getPM1())
+            dmin.setPM1(d.getPM1());
+        if (d.getPM10() < dmin.getPM10())
+            dmin.setPM10(d.getPM10());
+        if (d.getPressure() < dmin.getPressure())
+            dmin.setPressure(d.getPressure());
+        if (d.getRaw_battery_voltage() < dmin.getRaw_battery_voltage())
+            dmin.setRaw_battery_voltage(d.getRaw_battery_voltage());
+        if (d.getTemperature_BMP() < dmin.getTemperature_BMP())
+            dmin.setTemperature_BMP(d.getTemperature_BMP());
+        if (d.getTemperature_DS3231() < dmin.getTemperature_DS3231())
+            dmin.setTemperature_DS3231(d.getTemperature_DS3231());
+    }
 
 }
 

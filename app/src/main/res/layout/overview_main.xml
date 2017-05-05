@@ -7,309 +7,287 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/RelHumTVLabel"
-        android:ems="10"
-        android:id="@+id/RelHumTVLabel"
-        android:layout_alignTop="@+id/UVTV"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TempTV"
-        android:ems="10"
-        android:id="@+id/TempTV"
-        android:layout_alignTop="@+id/TempTVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="19dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RelHumTV"
-        android:ems="10"
-        android:id="@+id/RelHumTV"
-        android:layout_below="@+id/RelHumTVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AirPressureTV"
-        android:ems="10"
-        android:id="@+id/AirPressureTV"
-        android:layout_below="@+id/AirPressureTVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/UVTVLabel"
-        android:ems="10"
-        android:id="@+id/UVTVLabel"
-        android:layout_alignBaseline="@+id/TempTVLabel"
-        android:layout_alignBottom="@+id/TempTVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UVTV"
-        android:ems="10"
-        android:id="@+id/UVTV"
-        android:layout_alignBaseline="@+id/TempTV"
-        android:layout_alignBottom="@+id/TempTV"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PMTV"
-        android:ems="10"
-        android:id="@+id/PMTV"
-        android:layout_alignBaseline="@+id/RelHumTV"
-        android:layout_alignBottom="@+id/RelHumTV"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AirQualTV"
-        android:ems="10"
-        android:id="@+id/AirQualTV"
-        android:layout_alignBaseline="@+id/AirPressureTV"
-        android:layout_alignBottom="@+id/AirPressureTV"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/AirQualTVLabel"
-        android:ems="10"
-        android:id="@+id/AirQualTVLabel"
-        android:layout_alignBaseline="@+id/AirPressureTVLabel"
-        android:layout_alignBottom="@+id/AirPressureTVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/PMTVLabel"
-        android:ems="10"
-        android:id="@+id/PMTVLabel"
-        android:layout_alignBaseline="@+id/RelHumTVLabel"
-        android:layout_alignBottom="@+id/RelHumTVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/AirPressureTVLabel"
-        android:ems="10"
-        android:id="@+id/AirPressureTVLabel"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/RelHumTV"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pm1tv"
-        android:ems="10"
-        android:id="@+id/pm1tv"
-        android:layout_below="@+id/pm1TVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Raw Battery Voltage"
-        android:ems="10"
-        android:id="@+id/rbvTVLabel"
-        android:layout_below="@+id/pm1tv"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="rbvtv"
-        android:ems="10"
-        android:id="@+id/rbvtv"
-        android:layout_below="@+id/rbvTVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Temp BMP"
-        android:ems="10"
-        android:id="@+id/tempbmpTVLabel"
-        android:layout_below="@+id/rbvtv"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tempbmptv"
-        android:ems="10"
-        android:id="@+id/tempbmptv"
-        android:layout_below="@+id/tempbmpTVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="State"
-        android:ems="10"
-        android:id="@+id/stateTVLabel"
-        android:layout_above="@+id/statetv"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PM1"
-        android:ems="10"
-        android:id="@+id/pm1TVLabel"
-        android:layout_alignBaseline="@+id/BatVoltTVLabel"
-        android:layout_alignBottom="@+id/BatVoltTVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Temp Node"
-        android:ems="10"
-        android:id="@+id/tempnodeTVLabel"
-        android:layout_above="@+id/tempnodetv"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="statetv"
-        android:ems="10"
-        android:id="@+id/statetv"
-        android:layout_alignBaseline="@+id/tempbmptv"
-        android:layout_alignBottom="@+id/tempbmptv"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="@string/BatVoltTVLabel"
-        android:ems="10"
-        android:id="@+id/BatVoltTVLabel"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/AirQualTV"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BatVoltTV"
-        android:ems="10"
-        android:id="@+id/BatVoltTV"
-        android:layout_above="@+id/rbvTVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PM10"
-        android:ems="10"
-        android:id="@+id/pm10TVLabel"
-        android:layout_alignBaseline="@+id/rbvTVLabel"
-        android:layout_alignBottom="@+id/rbvTVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="pm10tv"
-        android:ems="10"
-        android:id="@+id/pm10tv"
-        android:layout_below="@+id/pm10TVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tempDS2131tv"
-        android:ems="10"
-        android:id="@+id/tempnodetv"
-        android:layout_below="@+id/GeoLocTVLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GeoLocTV"
-        android:ems="10"
-        android:id="@+id/GeoLocTV"
-        android:layout_below="@+id/GeoLocTVLabel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:text="Date"
         android:ems="10"
         android:id="@+id/dateTV"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/tempnodetv"
-        android:layout_alignStart="@+id/tempnodetv" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/GeoLocTVLabel"
-        android:ems="10"
-        android:id="@+id/GeoLocTVLabel"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/tempbmptv"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
+        android:text="Loading..."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TempTVLabel"
-        android:ems="10"
-        android:id="@+id/TempTVLabel"
-        android:layout_marginTop="85dp"
+        android:layout_below="@+id/pm1TVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/pm1tv" />
+
+    <TextView
+        android:text="Temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pm1TVLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="128dp"
+        android:layout_marginEnd="128dp"
+        android:id="@+id/TempTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TempTVLabel"
+        android:layout_alignLeft="@+id/TempTVLabel"
+        android:layout_alignStart="@+id/TempTVLabel"
+        android:id="@+id/TempTV" />
+
+    <TextView
+        android:text="PM2.5"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pm1tv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"
+        android:id="@+id/PMTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/PMTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/PMTV" />
+
+    <TextView
+        android:text="Temp BMP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/PMTVLabel"
+        android:layout_alignLeft="@+id/TempTV"
+        android:layout_alignStart="@+id/TempTV"
+        android:id="@+id/tempbmpTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/PMTV"
+        android:layout_alignLeft="@+id/tempbmpTVLabel"
+        android:layout_alignStart="@+id/tempbmpTVLabel"
+        android:id="@+id/tempbmptv" />
+
+    <TextView
+        android:text="PM10"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/PMTV"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"
+        android:id="@+id/pm10TVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pm10TVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/pm10tv" />
+
+    <TextView
+        android:text="Temp Node"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pm10tv"
+        android:layout_alignLeft="@+id/tempbmptv"
+        android:layout_alignStart="@+id/tempbmptv"
+        android:id="@+id/tempnodeTVLabel" />
+
+    <TextView
+        android:text="Air Quality"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/AirQualTVLabel"
+        android:layout_below="@+id/pm10tv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AirQualTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/AirQualTV" />
+
+    <TextView
+        android:text="Air Pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/AirQualTVLabel"
+        android:layout_alignLeft="@+id/tempnodetv"
+        android:layout_alignStart="@+id/tempnodetv"
+        android:id="@+id/AirPressureTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/AirQualTV"
+        android:layout_alignLeft="@+id/AirPressureTVLabel"
+        android:layout_alignStart="@+id/AirPressureTVLabel"
+        android:id="@+id/AirPressureTV" />
+
+    <TextView
+        android:text="Fermaldehyde"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AirQualTV"
+        android:layout_marginTop="10dp"
+        android:id="@+id/GeoLocTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GeoLocTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/GeoLocTV" />
+
+    <TextView
+        android:text="Ultraviolet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/GeoLocTVLabel"
+        android:layout_alignLeft="@+id/AirPressureTV"
+        android:layout_alignStart="@+id/AirPressureTV"
+        android:id="@+id/UVTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/GeoLocTV"
+        android:layout_alignLeft="@+id/UVTVLabel"
+        android:layout_alignStart="@+id/UVTVLabel"
+        android:id="@+id/UVTV" />
+
+    <TextView
+        android:text="State"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GeoLocTV"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/stateTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stateTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/statetv" />
+
+    <TextView
+        android:text="Battery Voltage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/stateTVLabel"
+        android:layout_alignLeft="@+id/UVTV"
+        android:layout_alignStart="@+id/UVTV"
+        android:id="@+id/BatVoltTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/statetv"
+        android:layout_alignLeft="@+id/BatVoltTVLabel"
+        android:layout_alignStart="@+id/BatVoltTVLabel"
+        android:id="@+id/BatVoltTV" />
+
+    <TextView
+        android:text="Relative Humidity"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/statetv"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp"
+        android:id="@+id/RelHumTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RelHumTVLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/RelHumTV" />
+
+    <TextView
+        android:text="Raw Battery Voltage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/RelHumTVLabel"
+        android:layout_alignLeft="@+id/BatVoltTV"
+        android:layout_alignStart="@+id/BatVoltTV"
+        android:id="@+id/rbvTVLabel" />
+
+    <TextView
+        android:text="Loading..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rbvTVLabel"
+        android:layout_alignLeft="@+id/rbvTVLabel"
+        android:layout_alignStart="@+id/rbvTVLabel"
+        android:id="@+id/rbvtv" />
+
+    <TextView
+        android:text="PM1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="194dp"
+        android:id="@+id/pm1TVLabel"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:text="Loading..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tempnodetv"
+        android:layout_below="@+id/tempnodeTVLabel"
+        android:layout_alignLeft="@+id/tempnodeTVLabel"
+        android:layout_alignStart="@+id/tempnodeTVLabel" />
 
 </RelativeLayout>

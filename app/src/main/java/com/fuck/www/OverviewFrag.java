@@ -130,7 +130,7 @@ public class OverviewFrag extends Fragment{
     }
 
     public void fillData(ArrayList<Data> datalist){
-        final TextView PMTV = (TextView) getView().findViewById(R.id.PMTV);
+        final TextView PMTV = (TextView) getView().findViewById(R.id.PMTVLabel);
         final TextView AirPressureTV = (TextView) getView().findViewById(R.id.AirPressureTV);
         final TextView AirQualTV = (TextView) getView().findViewById(R.id.AirQualTV);
         final TextView BatVoltTV = (TextView) getView().findViewById(R.id.BatVoltTV);

@@ -227,4 +227,52 @@ public class Data {
     public void setRaw_battery_voltage(double raw_battery_voltage) {
         this.raw_battery_voltage = raw_battery_voltage;
     }
+
+    public void setFormaldehyde(double formaldehyde) {
+        this.formaldehyde = formaldehyde;
+    }
+
+    public void setHumidity(double humidity) {
+        this.humidity = humidity;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public void setPM(double PM) {
+        this.PM = PM;
+    }
+
+    public void setPM1(double PM1) {
+        this.PM1 = PM1;
+    }
+
+    public void setPM10(double PM10) {
+        this.PM10 = PM10;
+    }
+
+    public void setPressure(double pressure) {
+        this.pressure = pressure;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
+
+    public void setTemperature_BMP(double temperature_BMP) {
+        this.temperature_BMP = temperature_BMP;
+    }
+
+    public void setTemperature_DS3231(double temperature_DS3231) {
+        this.temperature_DS3231 = temperature_DS3231;
+    }
+
+    public void setUltraviolet(double ultraviolet) {
+        this.ultraviolet = ultraviolet;
+    }
 }
