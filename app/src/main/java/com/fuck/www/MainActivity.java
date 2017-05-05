@@ -17,8 +17,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,14 +38,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Stack;
 
-
+//NavigationView.OnNavigationItemSelectedListener
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback{
+
+    final String API_KEY = "AIzaSyD9L77IhNe3XVI1TCx_nv69s2WcIybYVeM";
+    MapFragment mMapFragment;
+    Location mLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_test);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -59,13 +71,33 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         getLatestData();
+
+        mMapFragment = MapFragment.newInstance();
+        android.app.FragmentTransaction fragmentTransaction =
+                getFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.map, mMapFragment);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        // Add a marker in Sydney, Australia,
+        // and move the map's camera to the same location.
+        double lat = mLocation.getLat();
+        double lng = mLocation.getLng();
+        //LatLng loc = new LatLng(34.06358337402344, -118.4521255493164);
+        LatLng loc = new LatLng(lat, lng);
+        googleMap.addMarker(new MarkerOptions().position(loc)
+                .title("Current Location"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(14));
     }
 
 
     public ArrayList<Data> getLatestData(){
         //make a firebase instance
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        final ArrayList<Data> datalist = new ArrayList<Data>();
+        final ArrayList<Data> datalist = new ArrayList<>();
         DatabaseReference myRef = db.getReferenceFromUrl("https://smartsensor-842a9.firebaseio.com/SensorNode/S127");
         Query lastQuery = myRef.orderByKey().limitToLast(1);
 
@@ -131,6 +163,8 @@ public class MainActivity extends AppCompatActivity
         tempbmptv.setText(String.valueOf(datalist.get(0).getTemperature_BMP()));
         tempnodetv.setText(String.valueOf(datalist.get(0).getTemperature_DS3231()));
         datetv.setText(String.valueOf(datalist.get(0).getDate()));
+        mLocation = datalist.get(0).getLocation();
+        mMapFragment.getMapAsync(this);
     }
 
     public String determineAQ(double i){
@@ -217,15 +251,5 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 break;
         }
-/*
-        if(fragment != null){
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.content_main, fragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-        }*/
     }
 }
