@@ -1,5 +1,6 @@
 package com.fuck.www;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -35,7 +37,6 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback{
 
-    final String API_KEY = "AIzaSyD9L77IhNe3XVI1TCx_nv69s2WcIybYVeM";
     MapFragment mMapFragment;
     Location mLocation;
 
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity
         //make a firebase instance
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         final ArrayList<Data> datalist = new ArrayList<>();
-        DatabaseReference myRef = db.getReferenceFromUrl("https://smartsensor-842a9.firebaseio.com/SensorNode/S127");
+        final DatabaseReference myRef = db.getReferenceFromUrl("https://smartsensor-842a9.firebaseio.com/SensorNode/S127");
         Query lastQuery = myRef.orderByKey().limitToLast(1);
 
         // Read from the database
@@ -116,7 +117,8 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                ;
+                datalist.clear();
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -124,6 +126,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    @SuppressLint("SetTextI18n")
     public void fillData(ArrayList<Data> datalist){
         final TextView PMTV = (TextView) findViewById(R.id.PMTV);
         final TextView AirPressureTV = (TextView) findViewById(R.id.AirPressureTV);
@@ -158,10 +161,12 @@ public class MainActivity extends AppCompatActivity
 
         long dv = Long.valueOf(datalist.get(0).getDate())*1000;// its need to be in milisecond
         Date df = new java.util.Date(dv);
-        String vv = new SimpleDateFormat("MM/dd/yyyy hh:mma").format(df);
+        @SuppressLint("SimpleDateFormat") String vv = new SimpleDateFormat("MM/dd/yyyy hh:mma").format(df);
         datetv.setText("Last updated: " + vv);
-        mLocation = datalist.get(0).getLocation();
-        mMapFragment.getMapAsync(this);
+        for (int k = 0; k < 2; k++) {
+            mLocation = datalist.get(0).getLocation();
+            mMapFragment.getMapAsync(this);
+        }
     }
 
     public String determineAQ(double i){
@@ -180,10 +185,10 @@ public class MainActivity extends AppCompatActivity
         else
             return "error";
     }
-
+/*
     public String determineLoc(ArrayList<Data> list){
         return list.get(0).getLocation().displayLocation();
-    }
+    }*/
 
 
 

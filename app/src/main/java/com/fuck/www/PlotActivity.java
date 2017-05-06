@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.db.chart.model.LineSet;
 import com.db.chart.view.ChartView;
@@ -59,7 +61,7 @@ public class PlotActivity extends ActionBarActivity {
         });
 
         //fab
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
         getPastData(dataType);
     }
@@ -74,7 +76,7 @@ public class PlotActivity extends ActionBarActivity {
             dataType = s;
         //make a firebase instance
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        final ArrayList<Data> datalist = new ArrayList<Data>();
+        //final ArrayList<Data> datalist = new ArrayList<Data>();
         DatabaseReference myRef = db.getReferenceFromUrl("https://smartsensor-842a9.firebaseio.com/SensorNode/S127");
         Query lastQuery = myRef.orderByKey().limitToLast(MAX_ENTRIES);
         // Read from the database
@@ -88,24 +90,23 @@ public class PlotActivity extends ActionBarActivity {
                 Data dmin = new Data(10000.0, 10000.0, 10000.0, 10000.0, 10000.0, 10000.0, new Location(), 10000.0, 10000.0, 10000, 10000.0, 10000.0, 10000.0, 10000.0);
                 double minVal = 0;
                 double maxVal = 100;
-                datalist.clear();
+                //datalist.clear();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     //long date = child.getValue(Long.class);
-                    long date = 0;
-                    int PM = child.child("PM").getValue(int.class);
-                    int PM1 = child.child("PM1").getValue(int.class);
-                    int PM10 = child.child("PM10").getValue(int.class);
+                    double PM = child.child("PM").getValue(int.class);
+                    double PM1 = child.child("PM1").getValue(int.class);
+                    double PM10 = child.child("PM10").getValue(int.class);
                     double battery_voltage = child.child("battery voltage").getValue(double.class);
-                    int formaldehyde = child.child("formaldehyde").getValue(int.class);
+                    double formaldehyde = child.child("formaldehyde").getValue(int.class);
                     double humidity = child.child("humidity").getValue(double.class);
                     Location location = child.child("location").getValue(Location.class);
-                    int pressure = child.child("pressure").getValue(int.class);
+                    double pressure = child.child("pressure").getValue(int.class);
                     double rbv = child.child("raw battery voltage").getValue(double.class);
                     int state = child.child("state").getValue(int.class);
                     double temperature = child.child("temperature").getValue(double.class);
                     double temperature_BMP = child.child("temperature_BMP").getValue(double.class);
                     double temperature_DS3231 = child.child("temperature_DS3231").getValue(double.class);
-                    int uv = child.child("ultraviolet").getValue(int.class);
+                    double uv = child.child("ultraviolet").getValue(int.class);
                     String date2 = child.getKey();
 
                     Data d = new Data(PM, PM1, PM10, battery_voltage, formaldehyde, humidity,
@@ -114,7 +115,8 @@ public class PlotActivity extends ActionBarActivity {
                     d.setDate(date2);
                     setMax(dmax, d);
                     setMin(dmin, d);
-                    labels[i] = String.valueOf(i);
+                    //labels[i] = String.valueOf(i);
+                    labels[i] = " ";
                     switch (dataType){
                         case "Temperature":
                             values[i] = (float) temperature;
@@ -187,7 +189,7 @@ public class PlotActivity extends ActionBarActivity {
                             maxVal = dmax.getTemperature();
                             break;
                     }
-                    datalist.add(d);
+                    //datalist.add(d);
                     i++;
                 }
                 lineSet = new LineSet(labels, values);
@@ -197,7 +199,6 @@ public class PlotActivity extends ActionBarActivity {
                 LineChartView lineChartView = (LineChartView) findViewById(R.id.linechartview);
                 lineChartView.dismiss();
                 lineChartView.addData(lineSet);
-                lineChartView.setXAxis(true);
                 lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
                 lineChartView.show();
 
@@ -205,8 +206,8 @@ public class PlotActivity extends ActionBarActivity {
 
             @Override
             public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                //Log.w(TAG, "Failed to read value.", error.toException());
+                //Log.e("Failed to read value.", error.toException().toString());
+                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
             }
         });
     }
