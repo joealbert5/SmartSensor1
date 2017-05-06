@@ -31,6 +31,7 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:9.4.0'
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-maps:9.4.0'
+    compile 'com.diogobernardino:williamchart:2.4.0'
 }
 
 

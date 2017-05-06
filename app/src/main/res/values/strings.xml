@@ -22,9 +22,9 @@
         <item>PM2.5</item>
         <item>PM10</item>
         <item>UltraViolet</item>
-        <item>Fermaldehyde</item>
+        <item>Formaldehyde</item>
         <item>Battery Voltage</item>
-        <item>Raw Batery Voltage</item>
+        <item>Raw Battery Voltage</item>
         <item>State</item>
         <item>Location</item>
         <item>Air Pressure</item>
