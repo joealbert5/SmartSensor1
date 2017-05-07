@@ -91,6 +91,7 @@ public class PlotActivity extends ActionBarActivity {
                 double minVal = 0;
                 double maxVal = 100;
                 //datalist.clear();
+                LineChartView lineChartView = (LineChartView) findViewById(R.id.linechartview);
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     //long date = child.getValue(Long.class);
                     double PM = child.child("PM").getValue(int.class);
@@ -194,14 +195,18 @@ public class PlotActivity extends ActionBarActivity {
                 }
                 lineSet = new LineSet(labels, values);
                 lineSet.beginAt(0);
-
-
-                LineChartView lineChartView = (LineChartView) findViewById(R.id.linechartview);
                 lineChartView.dismiss();
-                lineChartView.addData(lineSet);
-                lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
-                lineChartView.show();
 
+                if (!dataType.equals("Formaldehyde")) {
+                    lineChartView.setStep(1);
+                    lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
+                }
+                else {
+                    lineChartView.setAxisBorderValues(((int) minVal) - 11, ((int) maxVal) + 11);
+                    lineChartView.setStep(10);
+                }
+                lineChartView.addData(lineSet);
+                lineChartView.show();
             }
 
             @Override

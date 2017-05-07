@@ -25,8 +25,6 @@
         <item>Formaldehyde</item>
         <item>Battery Voltage</item>
         <item>Raw Battery Voltage</item>
-        <item>State</item>
-        <item>Location</item>
         <item>Air Pressure</item>
     </string-array>
 </resources>

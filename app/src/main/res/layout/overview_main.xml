@@ -15,7 +15,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Loading..."
@@ -36,7 +37,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginRight="128dp"
         android:layout_marginEnd="128dp"
-        android:id="@+id/TempTVLabel" />
+        android:id="@+id/TempTVLabel"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Loading..."
@@ -56,7 +58,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="12dp"
-        android:id="@+id/PMTVLabel" />
+        android:id="@+id/PMTVLabel"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Loading..."
@@ -75,7 +78,8 @@
         android:layout_alignBottom="@+id/PMTVLabel"
         android:layout_alignLeft="@+id/TempTV"
         android:layout_alignStart="@+id/TempTV"
-        android:id="@+id/tempbmpTVLabel" />
+        android:id="@+id/tempbmpTVLabel"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Loading..."
@@ -95,7 +99,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="12dp"
-        android:id="@+id/pm10TVLabel" />
+        android:id="@+id/pm10TVLabel"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Loading..."
@@ -114,7 +119,8 @@
         android:layout_above="@+id/pm10tv"
         android:layout_alignLeft="@+id/tempbmptv"
         android:layout_alignStart="@+id/tempbmptv"
-        android:id="@+id/tempnodeTVLabel" />
+        android:id="@+id/tempnodeTVLabel"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Air Quality"
@@ -122,6 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/AirQualTVLabel"
+        android:textColor="@android:color/black"
         android:layout_below="@+id/pm10tv"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -144,7 +151,8 @@
         android:layout_alignBottom="@+id/AirQualTVLabel"
         android:layout_alignLeft="@+id/tempnodetv"
         android:layout_alignStart="@+id/tempnodetv"
-        android:id="@+id/AirPressureTVLabel" />
+        android:id="@+id/AirPressureTVLabel"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Loading..."
@@ -162,7 +170,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/AirQualTV"
         android:layout_marginTop="10dp"
-        android:id="@+id/GeoLocTVLabel" />
+        android:id="@+id/GeoLocTVLabel"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Loading..."
@@ -181,7 +190,8 @@
         android:layout_alignBottom="@+id/GeoLocTVLabel"
         android:layout_alignLeft="@+id/AirPressureTV"
         android:layout_alignStart="@+id/AirPressureTV"
-        android:id="@+id/UVTVLabel" />
+        android:id="@+id/UVTVLabel"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Loading..."
@@ -201,7 +211,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
-        android:id="@+id/stateTVLabel" />
+        android:id="@+id/stateTVLabel"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Loading..."
@@ -220,7 +231,8 @@
         android:layout_alignTop="@+id/stateTVLabel"
         android:layout_alignLeft="@+id/UVTV"
         android:layout_alignStart="@+id/UVTV"
-        android:id="@+id/BatVoltTVLabel" />
+        android:id="@+id/BatVoltTVLabel"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Loading..."
@@ -240,7 +252,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="11dp"
-        android:id="@+id/RelHumTVLabel" />
+        android:id="@+id/RelHumTVLabel"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Loading..."
@@ -259,7 +272,8 @@
         android:layout_alignBottom="@+id/RelHumTVLabel"
         android:layout_alignLeft="@+id/BatVoltTV"
         android:layout_alignStart="@+id/BatVoltTV"
-        android:id="@+id/rbvTVLabel" />
+        android:id="@+id/rbvTVLabel"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Loading..."
@@ -276,6 +290,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="194dp"
         android:id="@+id/pm1TVLabel"
+        android:textColor="@android:color/black"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

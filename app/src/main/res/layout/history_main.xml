@@ -18,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/textView3" />
+        android:id="@+id/textView3"
+        android:textColor="@android:color/black" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -40,7 +41,8 @@
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="13dp"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Relative Humidity"
@@ -50,7 +52,8 @@
         android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="PM1"
@@ -60,7 +63,8 @@
         android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="13dp" />
+        android:layout_marginTop="13dp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="PM2.5"
@@ -70,7 +74,8 @@
         android:layout_below="@+id/textView7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="PM10"
@@ -80,7 +85,8 @@
         android:layout_below="@+id/textView8"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="UltraViolet"
@@ -90,7 +96,8 @@
         android:layout_below="@+id/textView9"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Fermaldehyde"
@@ -100,7 +107,8 @@
         android:layout_below="@+id/textView10"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Battery Voltage"
@@ -110,7 +118,8 @@
         android:layout_below="@+id/textView11"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Raw Battery Voltage"
@@ -120,17 +129,8 @@
         android:layout_below="@+id/textView12"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
-
-    <TextView
-        android:text="State"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView14"
-        android:layout_below="@+id/textView13"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:text="Temp BMP"
@@ -140,7 +140,8 @@
         android:layout_marginTop="11dp"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:text="Loading..."
@@ -252,33 +253,24 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Loading..."
+        android:text="Air Pressure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView28"
-        android:layout_alignBaseline="@+id/textView14"
-        android:layout_alignBottom="@+id/textView14"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/textView16"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp" />
 
     <TextView
         android:text="Loading..."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
-        android:layout_below="@+id/textView28"
+        android:layout_alignBaseline="@+id/textView16"
+        android:layout_alignBottom="@+id/textView16"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="11dp" />
-
-    <TextView
-        android:text="Air Pressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView16"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
