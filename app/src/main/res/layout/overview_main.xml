@@ -294,7 +294,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_alignRight="@+id/pm1tv"
+        android:layout_alignEnd="@+id/pm1tv" />
 
     <TextView
         android:text="Loading..."

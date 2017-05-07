@@ -37,13 +37,16 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback{
 
+    //TODO: -enable navigation drawer on all activities
+    //TODO: -properly scale mapview in overview
+
     MapFragment mMapFragment;
     Location mLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);    //error
+        setContentView(R.layout.activity_main_all);    //error
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

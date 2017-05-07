@@ -202,7 +202,7 @@ public class PlotActivity extends ActionBarActivity {
                     lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
                 }
                 else {
-                    lineChartView.setAxisBorderValues(((int) minVal) - 11, ((int) maxVal) + 11);
+                    lineChartView.setAxisBorderValues(-10, ((int) maxVal) + 10);
                     lineChartView.setStep(10);
                 }
                 lineChartView.addData(lineSet);
