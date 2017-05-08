@@ -28,8 +28,8 @@ public class PushNotification extends FirebaseInstanceIdService {
         // TODO: Implement this method to send any registration to your app's servers.
 
         Http http = HttpFactory.create(this);
-        http.post("http://example.com/users")
-                .data(refreshedToken)
+        http.post("http://ardusensor.tk/api/v1.0/addID")
+                .data("id: " + refreshedToken)
                 .send();
     }
 }
