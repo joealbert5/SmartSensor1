@@ -4,6 +4,8 @@ import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
+import com.smartsensor.www.com.kodart.httpzoid.Http;
+import com.smartsensor.www.com.kodart.httpzoid.HttpFactory;
 
 /**
  * Created by joeal_000 on 5/7/2017.
@@ -24,6 +26,10 @@ public class PushNotification extends FirebaseInstanceIdService {
 
     private void sendRegistrationToServer(String refreshedToken) {
         // TODO: Implement this method to send any registration to your app's servers.
-        
+
+        Http http = HttpFactory.create(this);
+        http.post("http://example.com/users")
+                .data(refreshedToken)
+                .send();
     }
 }

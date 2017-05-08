@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback{
 
     //TODO: air pressure being integer and not double
-    //TODO: battery voltages not reading
 
     MapFragment mMapFragment;
     Location mLocation;

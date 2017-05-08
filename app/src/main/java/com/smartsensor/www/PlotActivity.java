@@ -226,23 +226,34 @@ public class PlotActivity extends AppCompatActivity
                 lineSet = new LineSet(labels, values);
                 lineSet.beginAt(0);
                 lineChartView.dismiss();
+                Paint paint = new Paint();
 
 
                 if (dataType.equals("Temperature") || dataType.equals("Temp BMP") || dataType.equals("Temp Node") || dataType.equals("Relative Humidity") ||
                         dataType.equals("Air Pressure")) {
                     lineChartView.setStep(1);
                     lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
-                    lineChartView.setGrid((((int) maxVal) - ((int) minVal) + 2)*5, 0, new Paint());
+                    lineChartView.setGrid((((int) maxVal) - ((int) minVal) + 2)*5, 0, paint);
                 }
                 else if (!dataType.equals("Formaldehyde")) {
                     lineChartView.setStep(1);
                     lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
-                    lineChartView.setGrid(((int) maxVal) - ((int) minVal) + 2, 0, new Paint());
+                    lineChartView.setGrid(((int) maxVal) - ((int) minVal) + 2, 0, paint);
                 }
                 else {
-                    lineChartView.setAxisBorderValues(-10, 270);
-                    lineChartView.setStep(10);
-                    lineChartView.setGrid(28, 0, new Paint());
+                    if (maxVal >= 30) {
+                        int step = 5;
+                        int lines = ((((int) maxVal)) / 5) + 1;
+                        lineChartView.setStep(1);
+                        lineChartView.setAxisBorderValues(0, ((int) maxVal) + step);
+                        lineChartView.setStep(step);
+                        lineChartView.setGrid(lines, 0, paint);
+                    }
+                    else{
+                        lineChartView.setStep(1);
+                        lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
+                        lineChartView.setGrid(((int) maxVal) - ((int) minVal) + 2, 0, paint);
+                    }
                 }
                 lineChartView.addData(lineSet);
                 lineChartView.show();
