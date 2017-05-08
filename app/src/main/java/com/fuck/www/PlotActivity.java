@@ -1,15 +1,23 @@
 package com.fuck.www;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.db.chart.model.LineSet;
@@ -22,15 +30,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
  * Created by joeal_000 on 4/26/2017.
  */
 
-public class PlotActivity extends ActionBarActivity {
+public class PlotActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    private final int MAX_ENTRIES = 50;
+    private final int MAX_ENTRIES = 72;    //30 mins
 
     //private String[] labels = new String[MAX_ENTRIES];
     //private float[] values = new float[MAX_ENTRIES];
@@ -59,6 +70,18 @@ public class PlotActivity extends ActionBarActivity {
 
             }
         });
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         //fab
         //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -92,6 +115,8 @@ public class PlotActivity extends ActionBarActivity {
                 double maxVal = 100;
                 //datalist.clear();
                 LineChartView lineChartView = (LineChartView) findViewById(R.id.linechartview);
+                TextView xaxis = (TextView) findViewById(R.id.xlabel);
+                TextView yaxis = (TextView) findViewById(R.id.ylabel);
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     //long date = child.getValue(Long.class);
                     double PM = child.child("PM").getValue(int.class);
@@ -118,61 +143,73 @@ public class PlotActivity extends ActionBarActivity {
                     setMin(dmin, d);
                     //labels[i] = String.valueOf(i);
                     labels[i] = " ";
+                    xaxis.setText("Time (last 30 minutes)");
                     switch (dataType){
                         case "Temperature":
                             values[i] = (float) temperature;
                             minVal = dmin.getTemperature();
                             maxVal = dmax.getTemperature();
+                            yaxis.setText("     Temperature (°C)     ");
                             break;
                         case "Temp BMP":
                             values[i] = (float) temperature_BMP;
                             minVal = dmin.getTemperature_BMP();
                             maxVal = dmax.getTemperature_BMP();
+                            yaxis.setText("     Temperature (°C)     ");
                             break;
                         case "Temp Node":
                             values[i] = (float) temperature_DS3231;
                             minVal = dmin.getTemperature_DS3231();
                             maxVal = dmax.getTemperature_DS3231();
+                            yaxis.setText("     Temperature (°C)     ");
                             break;
                         case "Relative Humidity":
                             values[i] = (float) humidity;
                             minVal = dmin.getHumidity();
                             maxVal = dmax.getHumidity();
+                            yaxis.setText("  Relative Humidity (%) ");
                             break;
                         case "PM1":
                             values[i] = (float) PM1;
                             minVal = dmin.getPM1();
                             maxVal = dmax.getPM1();
+                            yaxis.setText("        PM 1 (µg/m³)       ");
                             break;
                         case "PM2.5":
                             values[i] = (float) PM;
                             minVal = dmin.getPM();
                             maxVal = dmax.getPM();
+                            yaxis.setText("        PM 2.5 (µg/m³)     ");
                             break;
                         case "PM10":
                             values[i] = (float) PM10;
                             minVal = dmin.getPM10();
                             maxVal = dmax.getPM10();
+                            yaxis.setText("        PM 10 (µg/m³)      ");
                             break;
                         case "UltraViolet":
                             values[i] = (float) uv;
                             minVal = dmin.getUltraviolet();
                             maxVal = dmax.getUltraviolet();
+                            yaxis.setText("      Ultraviolet (mV)      ");
                             break;
                         case "Formaldehyde":
                             values[i] = (float) formaldehyde;
                             minVal = dmin.getFormaldehyde();
                             maxVal = dmax.getFormaldehyde();
+                            yaxis.setText("Formaldehyde (µg/m³)");
                             break;
                         case "Battery Voltage":
                             values[i] = (float) battery_voltage;
                             minVal = dmin.getBattery_voltage();
                             maxVal = dmax.getBattery_voltage();
+                            yaxis.setText("        Voltage (mV)         ");
                             break;
                         case "Raw Battery Voltage":
                             values[i] = (float) rbv;
                             minVal = dmin.getRaw_battery_voltage();
                             maxVal = dmax.getRaw_battery_voltage();
+                            yaxis.setText("        Voltage (mV)         ");
                             break;
                         case "State":
                             values[i] = (float) state;
@@ -183,6 +220,7 @@ public class PlotActivity extends ActionBarActivity {
                             values[i] = (float) pressure;
                             minVal = dmin.getPressure();
                             maxVal = dmax.getPressure();
+                            yaxis.setText("    Air Pressure (hPa)   ");
                             break;
                         default:
                             values[i] = (float) temperature;
@@ -197,13 +235,22 @@ public class PlotActivity extends ActionBarActivity {
                 lineSet.beginAt(0);
                 lineChartView.dismiss();
 
-                if (!dataType.equals("Formaldehyde")) {
+
+                if (dataType.equals("Temperature") || dataType.equals("Temp BMP") || dataType.equals("Temp Node") || dataType.equals("Relative Humidity") ||
+                        dataType.equals("Air Pressure")) {
                     lineChartView.setStep(1);
                     lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
+                    lineChartView.setGrid((((int) maxVal) - ((int) minVal) + 2)*5, 0, new Paint());
+                }
+                else if (!dataType.equals("Formaldehyde")) {
+                    lineChartView.setStep(1);
+                    lineChartView.setAxisBorderValues(((int) minVal) - 1, ((int) maxVal) + 1);
+                    lineChartView.setGrid(((int) maxVal) - ((int) minVal) + 2, 0, new Paint());
                 }
                 else {
-                    lineChartView.setAxisBorderValues(-10, ((int) maxVal) + 10);
+                    lineChartView.setAxisBorderValues(-10, 270);
                     lineChartView.setStep(10);
+                    lineChartView.setGrid(28, 0, new Paint());
                 }
                 lineChartView.addData(lineSet);
                 lineChartView.show();
@@ -268,5 +315,40 @@ public class PlotActivity extends ActionBarActivity {
             dmin.setTemperature_BMP(d.getTemperature_BMP());
         if (d.getTemperature_DS3231() < dmin.getTemperature_DS3231())
             dmin.setTemperature_DS3231(d.getTemperature_DS3231());
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+        displaySelectedScreen(id);
+        return true;
+    }
+
+    private void displaySelectedScreen(int id){
+        //Fragment fragment = null;
+        Intent intent;
+
+        switch(id){
+            case R.id.nav_overview:
+                //fragment = new OverviewFrag();
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_history:
+                //fragment = new HistoryActivity();
+                intent = new Intent(this, HistoryActivityReal.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_plots:
+                intent = new Intent(this, PlotActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_about:
+                intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

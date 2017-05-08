@@ -20,11 +20,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".HistoryActivityReal"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
         <activity android:name=".PlotActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
 

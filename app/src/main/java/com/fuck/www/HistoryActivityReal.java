@@ -5,9 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -28,7 +33,8 @@ import java.util.Stack;
  * Created by joeal_000 on 4/26/2017.
  */
 
-public class HistoryActivityReal extends AppCompatActivity {
+public class HistoryActivityReal extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,9 +42,21 @@ public class HistoryActivityReal extends AppCompatActivity {
         setContentView(R.layout.history_main);
         //fab
         //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         getPastData();
     }
+
+
 
     public void onClicked(View view){
         Intent intent = new Intent(this, MainActivity.class);
@@ -50,7 +68,7 @@ public class HistoryActivityReal extends AppCompatActivity {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         final ArrayList<Data> datalist = new ArrayList<>();
         DatabaseReference myRef = db.getReferenceFromUrl("https://smartsensor-842a9.firebaseio.com/SensorNode/S127");
-        Query lastQuery = myRef.orderByKey().limitToLast(1000);
+        Query lastQuery = myRef.orderByKey().limitToLast(1728);     //last 12 hrs
         // Read from the database
         lastQuery.addValueEventListener(new ValueEventListener() {
             @Override
@@ -203,6 +221,41 @@ public class HistoryActivityReal extends AppCompatActivity {
             dmin.setTemperature_BMP(d.getTemperature_BMP());
         if (d.getTemperature_DS3231() < dmin.getTemperature_DS3231())
             dmin.setTemperature_DS3231(d.getTemperature_DS3231());
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+        displaySelectedScreen(id);
+        return true;
+    }
+
+    private void displaySelectedScreen(int id){
+        //Fragment fragment = null;
+        Intent intent;
+
+        switch(id){
+            case R.id.nav_overview:
+                //fragment = new OverviewFrag();
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_history:
+                //fragment = new HistoryActivity();
+                intent = new Intent(this, HistoryActivityReal.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_plots:
+                intent = new Intent(this, PlotActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_about:
+                intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
 }
