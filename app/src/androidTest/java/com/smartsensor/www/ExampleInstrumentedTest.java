@@ -1,4 +1,4 @@
-package com.fuck.www;
+package com.smartsensor.www;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            tools:context="com.fuck.www.MainActivity">
+            tools:context="com.smartsensor.www.MainActivity">
 
             <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
@@ -42,7 +42,9 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:orientation="vertical" android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="56dp">
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
 
             <TextView
                 android:text="Temperature"

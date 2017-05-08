@@ -1,4 +1,4 @@
-package com.fuck.www;
+package com.smartsensor.www;
 
 import org.junit.Test;
 

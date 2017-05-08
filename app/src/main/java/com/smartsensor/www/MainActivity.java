@@ -1,10 +1,8 @@
-package com.fuck.www;
+package com.smartsensor.www;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -37,6 +35,8 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback{
 
+    //TODO: air pressure being integer and not double
+    //TODO: battery voltages not reading
 
     MapFragment mMapFragment;
     Location mLocation;
@@ -137,20 +137,20 @@ public class MainActivity extends AppCompatActivity
         final TextView tempnodetv = (TextView) findViewById(R.id.tempnodetv);
         final TextView datetv = (TextView) findViewById(R.id.dateTV);
 
-        PMTV.setText(String.valueOf(datalist.get(0).getPM()));
-        AirPressureTV.setText(String.valueOf(datalist.get(0).getPressure()));
+        PMTV.setText(String.valueOf(datalist.get(0).getPM()) + "µg/m³");
+        AirPressureTV.setText(String.valueOf(datalist.get(0).getPressure()) + "hPa");
         AirQualTV.setText(determineAQ(datalist.get(0).getFormaldehyde()));
-        BatVoltTV.setText(String.valueOf(datalist.get(0).getBattery_voltage()));
-        GeoLocTV.setText(String.valueOf(datalist.get(0).getFormaldehyde()));
-        UVTV.setText(String.valueOf(datalist.get(0).getUltraviolet()));
-        TempTV.setText(String.valueOf(datalist.get(0).getTemperature()));
-        RelHumTV.setText(String.valueOf(datalist.get(0).getHumidity()));
-        pm1tv.setText(String.valueOf(datalist.get(0).getPM1()));
-        pm10tv.setText(String.valueOf(datalist.get(0).getPM10()));
-        rbvtv.setText(String.valueOf(datalist.get(0).getRaw_battery_voltage()));
+        BatVoltTV.setText(String.valueOf(datalist.get(0).getBattery_voltage()) + "mV");
+        GeoLocTV.setText(String.valueOf(datalist.get(0).getFormaldehyde())+ "µg/m³");
+        UVTV.setText(String.valueOf(datalist.get(0).getUltraviolet()) + "mV");
+        TempTV.setText(String.valueOf(datalist.get(0).getTemperature()) + "°C");
+        RelHumTV.setText(String.valueOf(datalist.get(0).getHumidity()) + "%");
+        pm1tv.setText(String.valueOf(datalist.get(0).getPM1()) + "µg/m³");
+        pm10tv.setText(String.valueOf(datalist.get(0).getPM10()) + "µg/m³");
+        rbvtv.setText(String.valueOf(datalist.get(0).getRaw_battery_voltage()) + "mV");
         statetv.setText(String.valueOf(datalist.get(0).getState()));
-        tempbmptv.setText(String.valueOf(datalist.get(0).getTemperature_BMP()));
-        tempnodetv.setText(String.valueOf(datalist.get(0).getTemperature_DS3231()));
+        tempbmptv.setText(String.valueOf(datalist.get(0).getTemperature_BMP()) + "°C");
+        tempnodetv.setText(String.valueOf(datalist.get(0).getTemperature_DS3231()) + "°C");
 
         long dv = Long.valueOf(datalist.get(0).getDate())*1000;// its need to be in milisecond
         Date df = new java.util.Date(dv);

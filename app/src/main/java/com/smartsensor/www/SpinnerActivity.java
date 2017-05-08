@@ -1,4 +1,4 @@
-package com.fuck.www;
+package com.smartsensor.www;
 
 import android.app.Activity;
 import android.view.View;

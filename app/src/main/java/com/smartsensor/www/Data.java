@@ -1,4 +1,4 @@
-package com.fuck.www;
+package com.smartsensor.www;
 
 /**
  * Created by joeal_000 on 4/22/2017.
